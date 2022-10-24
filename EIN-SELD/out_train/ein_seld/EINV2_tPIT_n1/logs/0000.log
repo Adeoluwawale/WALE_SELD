@@ -1,0 +1,592 @@
+common.py[line:71] INFO Thu, 08 Sep 2022 09:39:27
+common.py[line:72] INFO 
+config.py[line:115] INFO loss_all is used as the 1st loss.
+config.py[line:115] INFO loss_BCEWithLogits is used as the 2nd loss.
+config.py[line:115] INFO loss_MSE is used as the 3rd loss.
+config.py[line:116] INFO 
+config.py[line:127] INFO ER20 is used as the 1st metric.
+config.py[line:127] INFO F20 is used as the 2nd metric.
+config.py[line:127] INFO LE20 is used as the 3rd metric.
+config.py[line:127] INFO LR20 is used as the 4th metric.
+config.py[line:127] INFO seld20 is used as the 5th metric.
+config.py[line:127] INFO ER19 is used as the 6th metric.
+config.py[line:127] INFO F19 is used as the 7th metric.
+config.py[line:127] INFO LE19 is used as the 8th metric.
+config.py[line:127] INFO LR19 is used as the 9th metric.
+config.py[line:127] INFO seld19 is used as the 10th metric.
+config.py[line:128] INFO 
+common.py[line:92] INFO Utilize GPUs for computation
+common.py[line:93] INFO Number of GPU available: 1
+
+config.py[line:148] INFO =====>> Building a model
+
+common.py[line:92] INFO Utilize GPUs for computation
+common.py[line:93] INFO Number of GPU available: 1
+
+config.py[line:154] INFO Model architectures:
+DataParallel(
+  (module): EINV2(
+    (sed_conv_block1): Sequential(
+      (0): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(4, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU(inplace=True)
+        )
+      )
+      (1): AvgPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0)
+    )
+    (sed_conv_block2): Sequential(
+      (0): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+          (3): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU(inplace=True)
+        )
+      )
+      (1): AvgPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0)
+    )
+    (sed_conv_block3): Sequential(
+      (0): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+          (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU(inplace=True)
+        )
+      )
+      (1): AvgPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0)
+    )
+    (sed_conv_block4): Sequential(
+      (0): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+          (3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU(inplace=True)
+        )
+      )
+      (1): AvgPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0)
+    )
+    (doa_conv_block1): Sequential(
+      (0): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(7, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU(inplace=True)
+        )
+      )
+      (1): AvgPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0)
+    )
+    (doa_conv_block2): Sequential(
+      (0): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+          (3): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU(inplace=True)
+        )
+      )
+      (1): AvgPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0)
+    )
+    (doa_conv_block3): Sequential(
+      (0): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+          (3): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU(inplace=True)
+        )
+      )
+      (1): AvgPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0)
+    )
+    (doa_conv_block4): Sequential(
+      (0): DoubleConv(
+        (double_conv): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): ReLU(inplace=True)
+          (3): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+          (4): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (5): ReLU(inplace=True)
+        )
+      )
+      (1): AvgPool2d(kernel_size=(1, 2), stride=(1, 2), padding=0)
+    )
+    (stitch): ParameterList(
+        (0): Parameter containing: [torch.cuda.FloatTensor of size 64x2x2 (GPU 0)]
+        (1): Parameter containing: [torch.cuda.FloatTensor of size 128x2x2 (GPU 0)]
+        (2): Parameter containing: [torch.cuda.FloatTensor of size 256x2x2 (GPU 0)]
+    )
+    (sed_trans_track1): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=1024, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=1024, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (sed_trans_track2): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=1024, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=1024, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (doa_trans_track1): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=1024, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=1024, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (doa_trans_track2): TransformerEncoder(
+      (layers): ModuleList(
+        (0): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=1024, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+        (1): TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=512, out_features=512, bias=True)
+          )
+          (linear1): Linear(in_features=512, out_features=1024, bias=True)
+          (dropout): Dropout(p=0.2, inplace=False)
+          (linear2): Linear(in_features=1024, out_features=512, bias=True)
+          (norm1): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((512,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.2, inplace=False)
+          (dropout2): Dropout(p=0.2, inplace=False)
+        )
+      )
+    )
+    (fc_sed_track1): Linear(in_features=512, out_features=14, bias=True)
+    (fc_sed_track2): Linear(in_features=512, out_features=14, bias=True)
+    (fc_doa_track1): Linear(in_features=512, out_features=3, bias=True)
+    (fc_doa_track2): Linear(in_features=512, out_features=3, bias=True)
+    (final_act_sed): Sequential()
+    (final_act_doa): Tanh()
+  )
+)
+
+common.py[line:105] INFO Total number of parameters: 26218978
+
+config.py[line:176] INFO Optimizer is: adam
+
+initialize.py[line:118] INFO Train folds are: 2,3,4,5,6
+
+initialize.py[line:119] INFO Valid folds are: 1
+
+initialize.py[line:120] INFO Training clip number is: 7500
+
+initialize.py[line:121] INFO Number of batches per epoch is: 235
+
+initialize.py[line:122] INFO Validation clip number is: 1500
+
+initialize.py[line:123] INFO Training loss type is: all
+
+initialize.py[line:126] INFO Data augmentation methods used are: None
+
+train.py[line:25] INFO ===> Training mode
+
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 0,  Epoch/Total Epoch: 0/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.000,  loss_sed: 0.000,  loss_doa: 0.000,  
+common.py[line:127] INFO valid: loss_all: 0.755,  loss_sed: 0.833,  loss_doa: 0.677,  
+common.py[line:127] INFO valid: ER20: 1.811,  F20: 0.004,  LE20: 67.362,  LR20: 0.125,  seld20: 1.014,  ER19: 1.754,  F19: 0.132,  LE19: 46.651,  LR19: 0.454,  seld19: 0.857,  
+train.py[line:62] INFO Train time: 13.784s,  Valid time: 43.605s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 235,  Epoch/Total Epoch: 1/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.403,  loss_sed: 0.130,  loss_doa: 0.675,  
+common.py[line:127] INFO valid: loss_all: 0.376,  loss_sed: 0.107,  loss_doa: 0.645,  
+common.py[line:127] INFO valid: ER20: 0.922,  F20: 0.121,  LE20: 53.535,  LR20: 0.339,  seld20: 0.690,  ER19: 0.779,  F19: 0.340,  LE19: 44.568,  LR19: 0.479,  seld19: 0.552,  
+train.py[line:62] INFO Train time: 215.841s,  Valid time: 9.585s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:79] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_1.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 470,  Epoch/Total Epoch: 2/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.360,  loss_sed: 0.095,  loss_doa: 0.625,  
+common.py[line:127] INFO valid: loss_all: 0.375,  loss_sed: 0.106,  loss_doa: 0.645,  
+common.py[line:127] INFO valid: ER20: 0.898,  F20: 0.156,  LE20: 47.732,  LR20: 0.456,  seld20: 0.638,  ER19: 0.664,  F19: 0.457,  LE19: 41.635,  LR19: 0.578,  seld19: 0.465,  
+train.py[line:62] INFO Train time: 125.485s,  Valid time: 10.418s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_2.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 705,  Epoch/Total Epoch: 3/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.351,  loss_sed: 0.081,  loss_doa: 0.622,  
+common.py[line:127] INFO valid: loss_all: 0.365,  loss_sed: 0.088,  loss_doa: 0.643,  
+common.py[line:127] INFO valid: ER20: 0.857,  F20: 0.196,  LE20: 47.420,  LR20: 0.587,  seld20: 0.585,  ER19: 0.543,  F19: 0.586,  LE19: 42.527,  LR19: 0.621,  seld19: 0.393,  
+train.py[line:62] INFO Train time: 132.085s,  Valid time: 10.783s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_3.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 940,  Epoch/Total Epoch: 4/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.347,  loss_sed: 0.073,  loss_doa: 0.621,  
+common.py[line:127] INFO valid: loss_all: 0.368,  loss_sed: 0.092,  loss_doa: 0.644,  
+common.py[line:127] INFO valid: ER20: 0.848,  F20: 0.211,  LE20: 48.256,  LR20: 0.543,  seld20: 0.591,  ER19: 0.583,  F19: 0.544,  LE19: 40.256,  LR19: 0.606,  seld19: 0.414,  
+train.py[line:62] INFO Train time: 130.534s,  Valid time: 10.597s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_4.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 1175,  Epoch/Total Epoch: 5/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.301,  loss_sed: 0.068,  loss_doa: 0.535,  
+common.py[line:127] INFO valid: loss_all: 0.311,  loss_sed: 0.100,  loss_doa: 0.523,  
+common.py[line:127] INFO valid: ER20: 0.796,  F20: 0.269,  LE20: 32.782,  LR20: 0.553,  seld20: 0.539,  ER19: 0.563,  F19: 0.553,  LE19: 27.610,  LR19: 0.624,  seld19: 0.385,  
+train.py[line:62] INFO Train time: 131.294s,  Valid time: 10.589s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_5.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 1410,  Epoch/Total Epoch: 6/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.279,  loss_sed: 0.063,  loss_doa: 0.495,  
+common.py[line:127] INFO valid: loss_all: 0.305,  loss_sed: 0.089,  loss_doa: 0.522,  
+common.py[line:127] INFO valid: ER20: 0.781,  F20: 0.295,  LE20: 32.291,  LR20: 0.586,  seld20: 0.520,  ER19: 0.540,  F19: 0.589,  LE19: 27.794,  LR19: 0.638,  seld19: 0.367,  
+train.py[line:62] INFO Train time: 130.144s,  Valid time: 9.983s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_6.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 1645,  Epoch/Total Epoch: 7/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.276,  loss_sed: 0.059,  loss_doa: 0.493,  
+common.py[line:127] INFO valid: loss_all: 0.315,  loss_sed: 0.095,  loss_doa: 0.536,  
+common.py[line:127] INFO valid: ER20: 0.868,  F20: 0.178,  LE20: 46.132,  LR20: 0.605,  seld20: 0.585,  ER19: 0.510,  F19: 0.604,  LE19: 36.974,  LR19: 0.661,  seld19: 0.363,  
+train.py[line:62] INFO Train time: 135.631s,  Valid time: 10.865s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_7.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 1880,  Epoch/Total Epoch: 8/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.277,  loss_sed: 0.061,  loss_doa: 0.493,  
+common.py[line:127] INFO valid: loss_all: 0.297,  loss_sed: 0.084,  loss_doa: 0.510,  
+common.py[line:127] INFO valid: ER20: 0.790,  F20: 0.276,  LE20: 36.152,  LR20: 0.608,  seld20: 0.527,  ER19: 0.508,  F19: 0.609,  LE19: 31.498,  LR19: 0.649,  seld19: 0.356,  
+train.py[line:62] INFO Train time: 130.111s,  Valid time: 10.008s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_8.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 2115,  Epoch/Total Epoch: 9/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.272,  loss_sed: 0.055,  loss_doa: 0.489,  
+common.py[line:127] INFO valid: loss_all: 0.296,  loss_sed: 0.087,  loss_doa: 0.505,  
+common.py[line:127] INFO valid: ER20: 0.818,  F20: 0.253,  LE20: 36.433,  LR20: 0.612,  seld20: 0.539,  ER19: 0.516,  F19: 0.613,  LE19: 31.720,  LR19: 0.642,  seld19: 0.360,  
+train.py[line:62] INFO Train time: 129.532s,  Valid time: 9.969s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_9.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 2350,  Epoch/Total Epoch: 10/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.269,  loss_sed: 0.051,  loss_doa: 0.488,  
+common.py[line:127] INFO valid: loss_all: 0.294,  loss_sed: 0.082,  loss_doa: 0.505,  
+common.py[line:127] INFO valid: ER20: 0.754,  F20: 0.320,  LE20: 31.785,  LR20: 0.658,  seld20: 0.488,  ER19: 0.461,  F19: 0.659,  LE19: 27.283,  LR19: 0.697,  seld19: 0.314,  
+train.py[line:62] INFO Train time: 129.364s,  Valid time: 10.605s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_10.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 2585,  Epoch/Total Epoch: 11/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.267,  loss_sed: 0.048,  loss_doa: 0.486,  
+common.py[line:127] INFO valid: loss_all: 0.290,  loss_sed: 0.076,  loss_doa: 0.504,  
+common.py[line:127] INFO valid: ER20: 0.742,  F20: 0.326,  LE20: 33.217,  LR20: 0.679,  seld20: 0.480,  ER19: 0.438,  F19: 0.681,  LE19: 28.252,  LR19: 0.694,  seld19: 0.305,  
+train.py[line:62] INFO Train time: 125.793s,  Valid time: 10.467s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_11.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 2820,  Epoch/Total Epoch: 12/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.265,  loss_sed: 0.045,  loss_doa: 0.485,  
+common.py[line:127] INFO valid: loss_all: 0.289,  loss_sed: 0.075,  loss_doa: 0.504,  
+common.py[line:127] INFO valid: ER20: 0.747,  F20: 0.331,  LE20: 36.696,  LR20: 0.715,  seld20: 0.476,  ER19: 0.408,  F19: 0.717,  LE19: 30.046,  LR19: 0.721,  seld19: 0.284,  
+train.py[line:62] INFO Train time: 127.426s,  Valid time: 10.967s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_12.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 3055,  Epoch/Total Epoch: 13/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.264,  loss_sed: 0.043,  loss_doa: 0.485,  
+common.py[line:127] INFO valid: loss_all: 0.294,  loss_sed: 0.084,  loss_doa: 0.504,  
+common.py[line:127] INFO valid: ER20: 0.737,  F20: 0.330,  LE20: 32.002,  LR20: 0.663,  seld20: 0.481,  ER19: 0.449,  F19: 0.664,  LE19: 27.589,  LR19: 0.704,  seld19: 0.309,  
+train.py[line:62] INFO Train time: 127.313s,  Valid time: 10.435s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_13.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 3290,  Epoch/Total Epoch: 14/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.262,  loss_sed: 0.041,  loss_doa: 0.483,  
+common.py[line:127] INFO valid: loss_all: 0.297,  loss_sed: 0.084,  loss_doa: 0.509,  
+common.py[line:127] INFO valid: ER20: 0.801,  F20: 0.261,  LE20: 34.711,  LR20: 0.667,  seld20: 0.516,  ER19: 0.446,  F19: 0.667,  LE19: 30.017,  LR19: 0.701,  seld19: 0.311,  
+train.py[line:62] INFO Train time: 128.691s,  Valid time: 10.550s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_14.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 3525,  Epoch/Total Epoch: 15/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.260,  loss_sed: 0.037,  loss_doa: 0.482,  
+common.py[line:127] INFO valid: loss_all: 0.297,  loss_sed: 0.090,  loss_doa: 0.504,  
+common.py[line:127] INFO valid: ER20: 0.761,  F20: 0.308,  LE20: 34.423,  LR20: 0.656,  seld20: 0.497,  ER19: 0.458,  F19: 0.655,  LE19: 30.181,  LR19: 0.701,  seld19: 0.317,  
+train.py[line:62] INFO Train time: 124.736s,  Valid time: 11.454s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_15.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 3760,  Epoch/Total Epoch: 16/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.259,  loss_sed: 0.036,  loss_doa: 0.482,  
+common.py[line:127] INFO valid: loss_all: 0.303,  loss_sed: 0.103,  loss_doa: 0.503,  
+common.py[line:127] INFO valid: ER20: 0.725,  F20: 0.342,  LE20: 31.762,  LR20: 0.632,  seld20: 0.482,  ER19: 0.477,  F19: 0.633,  LE19: 27.077,  LR19: 0.682,  seld19: 0.328,  
+train.py[line:62] INFO Train time: 128.842s,  Valid time: 10.459s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_16.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 3995,  Epoch/Total Epoch: 17/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.258,  loss_sed: 0.035,  loss_doa: 0.482,  
+common.py[line:127] INFO valid: loss_all: 0.292,  loss_sed: 0.079,  loss_doa: 0.504,  
+common.py[line:127] INFO valid: ER20: 0.721,  F20: 0.346,  LE20: 32.093,  LR20: 0.678,  seld20: 0.469,  ER19: 0.434,  F19: 0.679,  LE19: 27.244,  LR19: 0.709,  seld19: 0.299,  
+train.py[line:62] INFO Train time: 130.204s,  Valid time: 10.504s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_17.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 4230,  Epoch/Total Epoch: 18/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.257,  loss_sed: 0.032,  loss_doa: 0.481,  
+common.py[line:127] INFO valid: loss_all: 0.295,  loss_sed: 0.087,  loss_doa: 0.502,  
+common.py[line:127] INFO valid: ER20: 0.705,  F20: 0.368,  LE20: 31.643,  LR20: 0.694,  seld20: 0.455,  ER19: 0.421,  F19: 0.695,  LE19: 27.235,  LR19: 0.723,  seld19: 0.289,  
+train.py[line:62] INFO Train time: 128.132s,  Valid time: 10.695s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_18.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 4465,  Epoch/Total Epoch: 19/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.256,  loss_sed: 0.032,  loss_doa: 0.481,  
+common.py[line:127] INFO valid: loss_all: 0.292,  loss_sed: 0.080,  loss_doa: 0.503,  
+common.py[line:127] INFO valid: ER20: 0.729,  F20: 0.345,  LE20: 32.437,  LR20: 0.694,  seld20: 0.467,  ER19: 0.422,  F19: 0.695,  LE19: 29.267,  LR19: 0.721,  seld19: 0.292,  
+train.py[line:62] INFO Train time: 129.836s,  Valid time: 10.751s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_19.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 4700,  Epoch/Total Epoch: 20/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.254,  loss_sed: 0.029,  loss_doa: 0.480,  
+common.py[line:127] INFO valid: loss_all: 0.294,  loss_sed: 0.084,  loss_doa: 0.503,  
+common.py[line:127] INFO valid: ER20: 0.705,  F20: 0.368,  LE20: 30.307,  LR20: 0.682,  seld20: 0.456,  ER19: 0.430,  F19: 0.683,  LE19: 26.877,  LR19: 0.710,  seld19: 0.297,  
+train.py[line:62] INFO Train time: 129.747s,  Valid time: 10.481s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_20.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 4935,  Epoch/Total Epoch: 21/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.254,  loss_sed: 0.028,  loss_doa: 0.479,  
+common.py[line:127] INFO valid: loss_all: 0.291,  loss_sed: 0.079,  loss_doa: 0.502,  
+common.py[line:127] INFO valid: ER20: 0.695,  F20: 0.376,  LE20: 31.372,  LR20: 0.708,  seld20: 0.446,  ER19: 0.405,  F19: 0.709,  LE19: 28.590,  LR19: 0.721,  seld19: 0.283,  
+train.py[line:62] INFO Train time: 127.333s,  Valid time: 10.487s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_21.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 5170,  Epoch/Total Epoch: 22/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.253,  loss_sed: 0.027,  loss_doa: 0.479,  
+common.py[line:127] INFO valid: loss_all: 0.296,  loss_sed: 0.086,  loss_doa: 0.505,  
+common.py[line:127] INFO valid: ER20: 0.753,  F20: 0.326,  LE20: 34.603,  LR20: 0.682,  seld20: 0.485,  ER19: 0.437,  F19: 0.682,  LE19: 29.368,  LR19: 0.725,  seld19: 0.298,  
+train.py[line:62] INFO Train time: 128.359s,  Valid time: 11.382s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_22.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 5405,  Epoch/Total Epoch: 23/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.252,  loss_sed: 0.025,  loss_doa: 0.478,  
+common.py[line:127] INFO valid: loss_all: 0.292,  loss_sed: 0.082,  loss_doa: 0.502,  
+common.py[line:127] INFO valid: ER20: 0.704,  F20: 0.369,  LE20: 30.683,  LR20: 0.694,  seld20: 0.453,  ER19: 0.418,  F19: 0.696,  LE19: 26.820,  LR19: 0.713,  seld19: 0.290,  
+train.py[line:62] INFO Train time: 131.343s,  Valid time: 11.340s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_23.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 5640,  Epoch/Total Epoch: 24/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.251,  loss_sed: 0.024,  loss_doa: 0.477,  
+common.py[line:127] INFO valid: loss_all: 0.293,  loss_sed: 0.083,  loss_doa: 0.503,  
+common.py[line:127] INFO valid: ER20: 0.688,  F20: 0.381,  LE20: 31.111,  LR20: 0.707,  seld20: 0.443,  ER19: 0.396,  F19: 0.709,  LE19: 27.597,  LR19: 0.738,  seld19: 0.276,  
+train.py[line:62] INFO Train time: 129.607s,  Valid time: 10.746s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_24.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 5875,  Epoch/Total Epoch: 25/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.250,  loss_sed: 0.023,  loss_doa: 0.477,  
+common.py[line:127] INFO valid: loss_all: 0.297,  loss_sed: 0.093,  loss_doa: 0.501,  
+common.py[line:127] INFO valid: ER20: 0.710,  F20: 0.365,  LE20: 31.697,  LR20: 0.692,  seld20: 0.457,  ER19: 0.422,  F19: 0.694,  LE19: 26.663,  LR19: 0.737,  seld19: 0.285,  
+train.py[line:62] INFO Train time: 125.927s,  Valid time: 10.930s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_25.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 6110,  Epoch/Total Epoch: 26/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.250,  loss_sed: 0.022,  loss_doa: 0.477,  
+common.py[line:127] INFO valid: loss_all: 0.309,  loss_sed: 0.113,  loss_doa: 0.505,  
+common.py[line:127] INFO valid: ER20: 0.737,  F20: 0.344,  LE20: 31.445,  LR20: 0.640,  seld20: 0.482,  ER19: 0.474,  F19: 0.640,  LE19: 26.685,  LR19: 0.715,  seld19: 0.317,  
+train.py[line:62] INFO Train time: 139.928s,  Valid time: 10.642s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_26.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 6345,  Epoch/Total Epoch: 27/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.249,  loss_sed: 0.022,  loss_doa: 0.476,  
+common.py[line:127] INFO valid: loss_all: 0.294,  loss_sed: 0.086,  loss_doa: 0.502,  
+common.py[line:127] INFO valid: ER20: 0.720,  F20: 0.349,  LE20: 33.914,  LR20: 0.695,  seld20: 0.466,  ER19: 0.412,  F19: 0.695,  LE19: 29.098,  LR19: 0.733,  seld19: 0.286,  
+train.py[line:62] INFO Train time: 139.958s,  Valid time: 11.572s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_27.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 6580,  Epoch/Total Epoch: 28/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.248,  loss_sed: 0.020,  loss_doa: 0.476,  
+common.py[line:127] INFO valid: loss_all: 0.294,  loss_sed: 0.086,  loss_doa: 0.502,  
+common.py[line:127] INFO valid: ER20: 0.713,  F20: 0.358,  LE20: 33.655,  LR20: 0.709,  seld20: 0.458,  ER19: 0.401,  F19: 0.711,  LE19: 29.557,  LR19: 0.733,  seld19: 0.280,  
+train.py[line:62] INFO Train time: 146.687s,  Valid time: 10.764s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_28.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 6815,  Epoch/Total Epoch: 29/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.247,  loss_sed: 0.019,  loss_doa: 0.476,  
+common.py[line:127] INFO valid: loss_all: 0.298,  loss_sed: 0.093,  loss_doa: 0.502,  
+common.py[line:127] INFO valid: ER20: 0.699,  F20: 0.375,  LE20: 31.668,  LR20: 0.703,  seld20: 0.449,  ER19: 0.411,  F19: 0.704,  LE19: 28.143,  LR19: 0.729,  seld19: 0.284,  
+train.py[line:62] INFO Train time: 138.624s,  Valid time: 10.922s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_29.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 7050,  Epoch/Total Epoch: 30/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.247,  loss_sed: 0.019,  loss_doa: 0.476,  
+common.py[line:127] INFO valid: loss_all: 0.297,  loss_sed: 0.091,  loss_doa: 0.502,  
+common.py[line:127] INFO valid: ER20: 0.664,  F20: 0.412,  LE20: 28.357,  LR20: 0.705,  seld20: 0.426,  ER19: 0.407,  F19: 0.706,  LE19: 24.416,  LR19: 0.735,  seld19: 0.275,  
+train.py[line:62] INFO Train time: 144.168s,  Valid time: 10.867s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_30.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 7285,  Epoch/Total Epoch: 31/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.246,  loss_sed: 0.017,  loss_doa: 0.475,  
+common.py[line:127] INFO valid: loss_all: 0.297,  loss_sed: 0.091,  loss_doa: 0.503,  
+common.py[line:127] INFO valid: ER20: 0.728,  F20: 0.345,  LE20: 34.214,  LR20: 0.713,  seld20: 0.465,  ER19: 0.399,  F19: 0.715,  LE19: 29.807,  LR19: 0.747,  seld19: 0.276,  
+train.py[line:62] INFO Train time: 138.814s,  Valid time: 10.991s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_31.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 7520,  Epoch/Total Epoch: 32/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.246,  loss_sed: 0.017,  loss_doa: 0.475,  
+common.py[line:127] INFO valid: loss_all: 0.296,  loss_sed: 0.091,  loss_doa: 0.502,  
+common.py[line:127] INFO valid: ER20: 0.721,  F20: 0.348,  LE20: 34.093,  LR20: 0.710,  seld20: 0.463,  ER19: 0.400,  F19: 0.712,  LE19: 30.250,  LR19: 0.753,  seld19: 0.276,  
+train.py[line:62] INFO Train time: 146.950s,  Valid time: 10.944s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_32.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 7755,  Epoch/Total Epoch: 33/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.245,  loss_sed: 0.016,  loss_doa: 0.474,  
+common.py[line:127] INFO valid: loss_all: 0.293,  loss_sed: 0.086,  loss_doa: 0.501,  
+common.py[line:127] INFO valid: ER20: 0.682,  F20: 0.387,  LE20: 30.896,  LR20: 0.715,  seld20: 0.438,  ER19: 0.394,  F19: 0.716,  LE19: 27.937,  LR19: 0.741,  seld19: 0.273,  
+train.py[line:62] INFO Train time: 143.523s,  Valid time: 10.866s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_33.pth
+train.py[line:52] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+train.py[line:55] INFO Iter: 7990,  Epoch/Total Epoch: 34/90,  Batch/Total Batch: 0/235
+common.py[line:127] INFO Train: loss_all: 0.245,  loss_sed: 0.016,  loss_doa: 0.474,  
+common.py[line:127] INFO valid: loss_all: 0.296,  loss_sed: 0.090,  loss_doa: 0.502,  
+common.py[line:127] INFO valid: ER20: 0.706,  F20: 0.360,  LE20: 32.347,  LR20: 0.715,  seld20: 0.453,  ER19: 0.389,  F19: 0.716,  LE19: 29.174,  LR19: 0.744,  seld19: 0.273,  
+train.py[line:62] INFO Train time: 140.986s,  Valid time: 10.737s,  Lr: 0.0005
+train.py[line:64] INFO PIT type: tPIT
+train.py[line:65] INFO ---------------------------------------------------------------------------------------------------------------------------------------------------------
+checkpoint.py[line:121] INFO Checkpoint saved to out_train/ein_seld/EINV2_tPIT_n1/checkpoints/None_epoch_34.pth
